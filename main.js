@@ -7,10 +7,9 @@ var towerImg = document.createElement("img");
 
 // 設定這個元素的要顯示的圖片
 bgImg.src = "images/map.png";
-enemyImg.src = "images/jason.gif";
 enemyImg.src = "images/rukia.gif";
 btnImg.src = "images/tower-btn.png";
-towerImg.src = "images/tower.png";
+towerImg.src = "images/jason.gif";
 
 // 找出網頁中的 canvas 元素
 var canvas = document.getElementById("game-canvas");
