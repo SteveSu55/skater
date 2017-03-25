@@ -23,7 +23,7 @@ var ctx = canvas.getContext("2d");
 
 function draw(){
 	clock++;
-	if (clock%100 == 0) {
+	if (clock%10 == 0) {
 		var newEnemy = new Enemy();
 		enemies.push(newEnemy);
 	}
@@ -32,7 +32,7 @@ function draw(){
 	ctx.drawImage(bgImg,0,0);
 	ctx.fillText("HP:"+HP,32,32);
 	ctx.fillText("score:"+score,32,64)
-	ctx.fillText("money:"+money,32,96)
+	ctx.fillText("money:"+money,288,32)
 	for(var i = 0;i < enemies.length;i++){
 		if(enemies[i].HP <= 0){
 			enemies.splice(i,1);
@@ -55,6 +55,13 @@ function draw(){
 			var id = towers[i].aimingEnemyId;
 			ctx.drawImage(crosshairImg, enemies[id].x,enemies[id].y)
 		}
+	}
+	if(HP < 0){
+		clearInterval(intervalID)
+		ctx.font = "64px Arial"
+		ctx.fillText("LOSER",192,224)
+		ctx.fillText("YOU GOT",160,288)
+		ctx.fillText(score,224,352)
 	} 
 }
 
@@ -63,7 +70,7 @@ function draw(){
 
 
 // 執行 draw 函式
-setInterval(draw, 1000/FPS);
+var intervalID = setInterval(draw, 1000/FPS);
 
 
 var enemyPath =  [
